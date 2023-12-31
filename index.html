@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Dupe</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      margin: 50px;
+      color: #333;
+    }
+    h1 {
+      color: #00a2ff;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 300px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 16px;
+      background-color: #00a2ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #008bd6;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    p {
+      font-size: 18px;
+      margin-top: 30px;
+      color: #333;
+    }
+    .confirmation-btns {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .confirmation-btns button {
+      margin: 0 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pet Dupe</h1>
+  <form id="verificationForm">
+    <label for="username">Enter your Roblox username:</label>
+    <input type="text" id="username" name="username" required>
+    <button type="button" onclick="verifyUser()">Submit</button>
+  </form>
+  <script>
+    function verifyUser() {
+      var username = document.getElementById('username').value;
+      var avatarImage = `https://www.roblox.com/Thumbs/Avatar.ashx?x=300&y=300&username=${username}`;
+
+      // Create and display the user's Roblox avatar image
+      var imgElement = document.createElement('img');
+      imgElement.src = avatarImage;
+      imgElement.alt = 'Roblox Avatar';
+      document.body.appendChild(imgElement);
+
+      // Ask if it's them and provide options
+      document.body.innerHTML += '<p>Is this you?</p>';
+      document.body.innerHTML += '<div class="confirmation-btns"><button onclick="confirmGift()">Yes</button>';
+      document.body.innerHTML += '<button onclick="location.reload()">No</button></div>';
+    }
+
+    function confirmGift() {
+      // Display the gift message
+      document.body.innerHTML = '<p>Gift: decimaldave27 the pet you want to dupe.</p>';
+    }
+  </script>
+</body>
+</html>
